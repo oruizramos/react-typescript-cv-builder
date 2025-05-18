@@ -1,54 +1,133 @@
-# React + TypeScript + Vite
+# 📝 CV Builder (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple, modular CV Builder application built using **React** and **TypeScript**. It allows users to enter and manage their **general information**, **educational background**, and **practical work experience**, with functionality to add, edit, delete, and display form entries.
 
-Currently, two official plugins are available:
+This project is part of the projects/assignments of TheOdinProject (https://www.theodinproject.com/lessons/node-path-react-new-cv-application), but since I have been learning Typescript, I thought it would be a good way to practice it here as well. I was trying to showcase:  **component-driven architecture**, **state management with hooks**, **form handling**, and **clean code practices using TypeScript**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 [Live on Netlify]  
+💻 [View on GitHub](https://github.com/oruizramos/react-typescript-cv-builder)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧠 Project Goals & Thought Process
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The primary objective of this project was to practice and demonstrate proficiency with:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- ✅ **React components and props** for reusable, isolated sections.
+- ✅ **TypeScript** for adding type safety and improving developer experience.
+- ✅ **State management** using `useState` for controlling form behavior.
+- ✅ **CSS modularization** to create maintainable and scoped styling.
+- ✅ **Edit/Save/Cancel workflows** to mimic real-world form UX.
+
+Each section of the CV (General Info, Education, Experience) was treated as a **self-contained unit** to maximize reusability and separation of concerns.
+
+---
+
+## 🛠️ Features
+
+- ✏️ Add/Edit/Delete General Information (name, email, phone).
+- 🎓 Add/Edit/Delete multiple Educational Experiences (school, title, dates).
+- 💼 Add/Edit/Delete multiple Practical Experiences (company, position, responsibilities, dates).
+- 💡 Input validation structure ready for extension.
+- ⚙️ Local component state keeps data dynamic (no backend).
+
+---
+
+## 🔧 Tech Stack
+
+- **React** with functional components and hooks
+- **TypeScript** for type safety and better tooling
+- **CSS Modules** for scoped, readable styling
+- **Vite / Create React App** (depending on your setup)
+- **Netlify** for deployment
+
+---
+
+## 📁 Folder Structure
+
+src/
+│
+├── components/
+│ ├── GeneralInfoList.tsx
+│ ├── EducationList.tsx
+│ ├── ExperienceList.tsx
+│ ├── GeneralInfoEntry.tsx
+│ ├── EducationEntry.tsx
+│ └── ExperienceEntry.tsx
+│ ├── App.css
+│ ├── GeneralInfoEntry.css
+│ ├── EducationEntry.css
+│ └── ExperienceEntry.css
+│
+├── App.tsx
+└── main.tsx / index.tsx
+
+yaml
+Copy
+Edit
+
+---
+
+## 🔒 TypeScript Usage Highlights
+
+- Defined reusable interfaces for `GeneralInfo`, `Education`, and `Experience` entries.
+- Used `Omit<Type, 'id'>` for clean handling of new vs. existing data.
+- All props passed to components are explicitly typed for safety and editor support.
+- Enforced strict typing on event handlers (`React.ChangeEvent`, etc.)
+
+```ts
+interface Education {
+  id: string;
+  school: string;
+  degree: string;
+  startDate: string;
+  endDate: string;
+}
+
+const handleSave = (newEducation: Omit<Education, 'id'>) => { ... }
+🧪 Future Improvements
+🧠 Add global state management (e.g., Redux or Context) if scaling up.
+
+🌐 Integrate persistent storage (e.g., localStorage or backend).
+
+🎨 Add drag-and-drop or section reordering.
+
+📄 Export CV as PDF or print-ready format.
+
+✅ Add form validation and accessibility improvements.
+
+📦 Getting Started
+1. Clone the repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/cv-builder.git
+cd cv-builder
+2. Install dependencies
+bash
+Copy
+Edit
+npm install
+3. Run the development server
+bash
+Copy
+Edit
+npm run dev
+# or
+npm start
+4. Build for production
+bash
+Copy
+Edit
+npm run build
+👤 Author
+Omar Alejandro Ruiz Ramos
+📧 omarruizramos.gmail@.com
+
+📄 License
+This project is licensed under the MIT License.
+
