@@ -8,7 +8,7 @@ This project is part of the projects/assignments of TheOdinProject (https://www.
 
 ## 🚀 Live Demo
 
-🔗 [Live on Netlify]  
+🔗 [Live on Netlify](https://682a306456b200a05c2ab60e--react-typescript-cv-builder.netlify.app/)  
 💻 [View on GitHub](https://github.com/oruizramos/react-typescript-cv-builder)
 
 ---
